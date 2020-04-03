@@ -1,0 +1,25 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "A web based calculator",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jasmine": "^4.1.0"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Alan Savage",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asavageiv/calculator/issues"
+  },
+  "homepage": "https://github.com/asavageiv/calculator#readme"
+}
