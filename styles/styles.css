@@ -1,6 +1,7 @@
 #calculator {
   
 }
+
 #display {
   border-color: black;
   border-style: solid;
@@ -8,6 +9,7 @@
   margin: 10px auto;
   width: 380px;
   height: 20px;
+  text-align: right;
 }
 
 #calculator-buttons {
