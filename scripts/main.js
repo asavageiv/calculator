@@ -21,6 +21,11 @@ const ID_TO_OP = Object.freeze({
 
 const updateDisplay = () => {
   document.getElementById('display').textContent = calculator.getDisplay();
+  if (calculator.getDisplay().includes('.')) {
+    document.getElementById('.').disabled = true;
+  } else {
+    document.getElementById('.').disabled = false;
+  }
 };
 
 const onClickDigit = (e) => {
