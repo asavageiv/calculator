@@ -1,6 +1,7 @@
 import {Calculator, Operation} from '../scripts/calculator.js';
 
 describe('Calculator', () => {
+  const near = 
   it('2+2=4', () => {
     const calc = new Calculator();
     calc.inputDigit('2');
@@ -83,5 +84,23 @@ describe('Calculator', () => {
     calc.inputOperation(Operation.ADD);
 
     expect(calc.getDisplay()).toEqual('0');
+  });
+
+  it('2.1+2.2 = 4.3', () => {
+    const calc = new Calculator();
+    calc.inputDigit('2');
+    calc.inputDecimal();
+    calc.inputDigit('1');
+    calc.inputOperation(Operation.ADD);
+    calc.inputDigit('2');
+    calc.inputDecimal();
+    calc.inputDigit('2');
+    calc.equals();
+
+    expect(calc.getDisplay()).toEqual({
+      asymmetricMatch: (actual) => {
+        return Math.abs(Number(actual) - 4.3) < .01;
+      },
+    });
   });
 });

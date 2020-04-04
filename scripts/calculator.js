@@ -52,6 +52,15 @@ class Calculator {
     this.display += digit;
   }
 
+  inputDecimal() {
+    if (this.isStartingNewNumber) {
+      this.display = '0.';
+      this.isStartingNewNumber = false;
+    } else if (!this.display.includes('.')) {
+      this.display += '.';
+    }
+  }
+
   /**
    *
    * @param {Operation} operation
