@@ -1,4 +1,4 @@
-const {Calculator, Operation} = require('./calculator');
+import {Calculator, Operation} from '../scripts/calculator.js';
 
 describe('Calculator', () => {
   it('2+2=4', () => {
