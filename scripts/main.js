@@ -38,12 +38,16 @@ const onClickEquals = (e) => {
   updateDisplay();
 };
 
+const onClickClear = (e) => {
+  calculator = new Calculator();
+  updateDisplay();
+};
+
 for (let i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', onClickDigit);
 }
-
 for (const opId of Object.keys(ID_TO_OP)) {
   document.getElementById(opId).addEventListener('click', onClickOperator);
 }
-
 document.getElementById('equals').addEventListener('click', onClickEquals);
+document.getElementById('clear').addEventListener('click', onClickClear);
