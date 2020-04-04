@@ -1,0 +1,24 @@
+#calculator {
+  
+}
+#display {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  margin: 10px auto;
+  width: 380px;
+  height: 20px;
+}
+
+#calculator-buttons {
+  display: grid;
+  grid-template-areas:
+    ". . . . clear"
+    "7 8 9 add ."
+    "4 5 6 subtract ."
+    "1 2 3 multiply ."
+    "0 period negative divide equals";
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
