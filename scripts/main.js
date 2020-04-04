@@ -43,6 +43,11 @@ const onClickClear = (e) => {
   updateDisplay();
 };
 
+const onClickDecimal = () => {
+  calculator.inputDecimal();
+  updateDisplay();
+};
+
 for (let i = 0; i < 10; i++) {
   document.getElementById(i).addEventListener('click', onClickDigit);
 }
@@ -51,3 +56,4 @@ for (const opId of Object.keys(ID_TO_OP)) {
 }
 document.getElementById('equals').addEventListener('click', onClickEquals);
 document.getElementById('clear').addEventListener('click', onClickClear);
+document.getElementById('.').addEventListener('click', onClickDecimal);
