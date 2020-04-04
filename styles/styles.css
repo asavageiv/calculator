@@ -1,10 +1,13 @@
+body {
+  font-size: 40px;
+}
+
 #display {
   border-color: black;
   border-style: solid;
   border-width: 1px;
   margin: 10px auto;
   width: 380px;
-  height: 20px;
   text-align: right;
   padding-right: 5px;
 }
@@ -16,7 +19,16 @@
     "4 5 6 subtract ."
     "1 2 3 multiply clear"
     "0 period negative divide equals";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 400px;
   height: 400px;
   margin: auto;
+}
+
+button {
+  font-size: 40px;
+  margin: 2px;
+  border-radius: 3px;
+  background-color: #7FB2E9;
+  color: #981616;
 }
