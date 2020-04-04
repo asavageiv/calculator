@@ -33,9 +33,9 @@ const OP_ORDER = Object.freeze(
 
 class Calculator {
   constructor() {
-    this.display = '';
+    this.display = '0';
     this.inputs = [];
-    this.startingNewNumber = true;
+    this.isStartingNewNumber = true;
   }
 
   /**
@@ -43,9 +43,11 @@ class Calculator {
    * @param {string} digit
    */
   inputDigit(digit) {
-    if (this.startingNewNumber) {
+    // If expecting a new number we should reset the display so we don't keep
+    // appending to the old number. E.g. '24 + 2' should show '24' then '2'.
+    if (this.isStartingNewNumber) {
       this.display = '';
-      this.startingNewNumber = false;
+      this.isStartingNewNumber = false;
     }
     this.display += digit;
   }
@@ -55,17 +57,20 @@ class Calculator {
    * @param {Operation} operation
    */
   inputOperation(operation) {
+    // Ignore operators entered before any input
+    if (this.inputs.length === 0 && this.isStartingNewNumber) {
+      return;
+    }
     // If the last key the user hit was an operation, assume they made a mistake
     // and want the second operator;
-    if (this.inputs.length > 0 &&
-        this.startingNewNumber) {
+    if (this.inputs.length > 0 && this.isStartingNewNumber) {
       this.inputs.pop();
       this.inputs.push(operation);
       return;
     }
     this.inputs.push(Number(this.display));
     this.inputs.push(operation);
-    this.startingNewNumber = true;
+    this.isStartingNewNumber = true;
   }
 
   equals() {
@@ -82,7 +87,7 @@ class Calculator {
       }
     }
     this.display = '' + this.inputs.pop();
-    this.startingNewNumber = true;
+    this.isStartingNewNumber = true;
   }
 
   getDisplay() {
@@ -90,7 +95,4 @@ class Calculator {
   }
 }
 
-module.exports = {
-  Calculator,
-  Operation,
-};
+export {Calculator, Operation};

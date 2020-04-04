@@ -47,9 +47,9 @@ describe('Calculator', () => {
     expect(calc.getDisplay()).toEqual('12');
   });
 
-  it('inputting consecutive operators uses last one', () => {
+  describe('inputting consecutive operators uses last one', () => {
     it('higher precedence operator last', () => {
-      calc = new Calculator();
+      const calc = new Calculator();
       calc.inputDigit('2');
       calc.inputOperation(Operation.ADD);
       calc.inputOperation(Operation.MULTIPLY);
@@ -69,5 +69,19 @@ describe('Calculator', () => {
 
       expect(calc.getDisplay()).toEqual('5');
     });
+  });
+
+  it('equals on empty input does nothing', () => {
+    const calc = new Calculator();
+    calc.equals();
+
+    expect(calc.getDisplay()).toEqual('0');
+  });
+
+  it('operator before any input does nothing', () => {
+    const calc = new Calculator();
+    calc.inputOperation(Operation.ADD);
+
+    expect(calc.getDisplay()).toEqual('0');
   });
 });
