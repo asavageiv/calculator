@@ -65,11 +65,9 @@ class Calculator {
     // and want the second operator;
     if (this.inputs.length > 0 && this.isStartingNewNumber) {
       this.inputs.pop();
-      this.inputs.push(operation);
-      this.subtotal();
-      return;
+    } else {
+      this.inputs.push(Number(this.display));
     }
-    this.inputs.push(Number(this.display));
     this.inputs.push(operation);
     this.subtotal();
     this.isStartingNewNumber = true;
@@ -108,7 +106,6 @@ class Calculator {
   }
 
   equals() {
-    // TODO: check that the input is ready to be calculated
     this.inputs.push(Number(this.display));
     this.inputs.push(Operation.EQUALS);
     this.subtotal();

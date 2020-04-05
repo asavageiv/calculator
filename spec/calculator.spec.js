@@ -159,4 +159,20 @@ describe('Calculator', () => {
 
     expect(calc.getDisplay()).toEqual('16');
   });
+
+  it('2+4*-5=1 and shows 6 as intermediate value', () => {
+    const calc = new Calculator();
+    calc.inputDigit('2');
+    calc.inputOperation(Operation.ADD);
+    calc.inputDigit('4');
+    calc.inputOperation(Operation.MULTIPLY);
+    calc.inputOperation(Operation.SUBTRACT);
+
+    expect(calc.getDisplay()).toEqual('6');
+
+    calc.inputDigit('4');
+    calc.equals();
+
+    expect(calc.getDisplay()).toEqual('2');
+  });
 });
