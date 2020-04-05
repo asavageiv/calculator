@@ -187,4 +187,23 @@ describe('Calculator', () => {
 
     expect(calc.getDisplay()).toEqual('2');
   });
+
+  it('-1 shows -0 then -1', () => {
+    const calc = new Calculator();
+    calc.negate();
+
+    expect(calc.getDisplay()).toEqual('-0');
+    calc.inputDigit('1');
+
+    expect(calc.getDisplay()).toEqual('-1');
+
+    calc.inputOperation(Operation.ADD);
+
+    expect(calc.getDisplay()).toEqual('-1');
+
+    calc.inputDigit('2');
+    calc.equals();
+
+    expect(calc.getDisplay()).toEqual('1');
+  });
 });

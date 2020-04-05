@@ -37,7 +37,11 @@ class Calculator {
     // If expecting a new number we should reset the display so we don't keep
     // appending to the old number. E.g. '24 + 2' should show '24' then '2'.
     if (this.isStartingNewNumber) {
-      this.display = '';
+      if (this.display === '-0') {
+        this.display = '-';
+      } else {
+        this.display = '';
+      }
       this.isStartingNewNumber = false;
     }
     this.display += digit;
@@ -55,11 +59,9 @@ class Calculator {
   }
 
   inputDecimal() {
-    if (this.isStartingNewNumber) {
-      this.display = '0.';
-      this.isStartingNewNumber = false;
-    } else if (!this.display.includes('.')) {
+    if (!this.display.includes('.')) {
       this.display += '.';
+      this.isStartingNewNumber = false;
     }
   }
 
@@ -82,6 +84,14 @@ class Calculator {
     this.inputs.push(operation);
     this.subtotal();
     this.isStartingNewNumber = true;
+  }
+
+  negate() {
+    if (this.display.startsWith('-')) {
+      this.display = this.display.slice(1);
+    } else {
+      this.display = '-' + this.display;
+    }
   }
 
   subtotal() {
