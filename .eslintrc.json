@@ -18,6 +18,8 @@
     "rules": {
       "jasmine/new-line-between-declarations": "off",
       "jasmine/no-spec-dupes": "off",
+      "no-multi-spaces": ["error", {"ignoreEOLComments": true}],
       "require-jsdoc": "off"
+
     }
 }
