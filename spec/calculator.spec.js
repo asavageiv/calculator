@@ -1,7 +1,7 @@
 import {Calculator, Operation} from '../scripts/calculator.js';
 
 describe('Calculator', () => {
-  const near = it('2+2=4', () => {
+  it('2+2=4', () => {
     const calc = new Calculator();
     calc.inputDigit('2');
     calc.inputOperation(Operation.ADD);
