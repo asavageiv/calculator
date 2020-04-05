@@ -43,6 +43,17 @@ class Calculator {
     this.display += digit;
   }
 
+  backspace() {
+    if (this.isStartingNewNumber) {
+      return;
+    }
+    this.display = this.display.slice(0, this.display.length - 1);
+    if (this.display.length == 0) {
+      this.display = '0';
+      this.isStartingNewNumber = true;
+    }
+  }
+
   inputDecimal() {
     if (this.isStartingNewNumber) {
       this.display = '0.';
