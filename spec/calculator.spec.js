@@ -24,6 +24,16 @@ describe('Calculator', () => {
     expect(calc.getDisplay()).toEqual('6');
   });
 
+  it('2+2+ shows intermediate result', () => {
+    const calc = new Calculator();
+    calc.inputDigit('2');
+    calc.inputOperation(Operation.ADD);
+    calc.inputDigit('2');
+    calc.inputOperation(Operation.ADD);
+
+    expect(calc.getDisplay()).toEqual('4');
+  });
+
   it('2*4=8', () => {
     const calc = new Calculator();
     calc.inputDigit('2');
